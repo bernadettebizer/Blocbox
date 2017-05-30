@@ -286,6 +286,15 @@ html, body{
    margin-left: -10px;
  }
 
+.staggered{
+   top: 20px;
+   width:21%;
+   float:left;
+   position:relative;
+   min-height: 1px;
+   margin:0 2% 20px;
+ }
+
  .testimonials img {
   height: 65px;
   width: 65px;
