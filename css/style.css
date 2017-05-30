@@ -366,3 +366,7 @@ html, body{
      padding: 2em 0 2em 1.5em;
    }
  }
+
+ .content img {
+   height: 200px;
+ }
