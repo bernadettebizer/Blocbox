@@ -35,7 +35,7 @@ html, body{
   .container:after {
     clear: both;
   }
-  .one-half, .one-third, .one-fourth {
+  .one-half, .one-third, .one-fourth, .staggered {
     width:96%;
     float:left;
     position:relative;
@@ -45,6 +45,8 @@ html, body{
 @media (min-width: 315px) {
   .container {
     width: 310px;
+    padding-left: 2px;
+    padding-right: 2px;
   }
   header img{
     max-width:100%;
@@ -130,6 +132,10 @@ html, body{
  header .hero img {
    display: block;
    margin:3em auto 0;
+ }
+
+ header .hero h1, p, a, img{
+   text-align: center;
  }
 
  /* BUTTONS */
@@ -286,7 +292,7 @@ html, body{
    margin-left: -10px;
  }
 
-.staggered{
+.staggered li{
    top: 20px;
    width:21%;
    float:left;
