@@ -35,7 +35,7 @@ html, body{
   .container:after {
     clear: both;
   }
-  .one-half, .one-third, .one-fourth, .staggered {
+  .one-half, .one-third, .one-fourth {
     width:96%;
     float:left;
     position:relative;
@@ -51,10 +51,27 @@ html, body{
   header img{
     max-width:100%;
   }
+  .container.hero h1{
+    font-size: 32px;
+    margin: auto 0;
+  }
+  .container.hero p{
+    font-size: 14px;
+  }
 }
 @media (min-width: 768px) {
   .container {
     width: 750px;
+  }
+  .container.hero h1{
+    font-size: 52px;
+    margin: 95px auto 0;
+  }
+  .container.hero p{
+    font-size: 22px;
+  }
+  header nav ul {
+    float:right;
   }
 }
 @media (min-width: 992px) {
@@ -70,6 +87,13 @@ html, body{
   .one-fourth {
     width:21%;
   }
+  li.staggered{
+     top: 20px;
+     float:left;
+     position:relative;
+     min-height: 1px;
+     margin:0 2% 20px;
+   }
 }
 @media (min-width: 1200px) {
   .container {
@@ -89,7 +113,6 @@ html, body{
  header nav ul {
    display:inline;
    text-align: right;
-   float:right;
    margin:0;
  }
  header nav ul > li {
@@ -121,7 +144,8 @@ html, body{
  header .hero h1 {
    font-size:48px;
    font-weight: normal;
-   margin:95px 0 0;
+   margin:95px auto 0;
+   text-align: center;
  }
  header .hero p {
    font-size: 22px;
@@ -292,15 +316,6 @@ html, body{
    margin-left: -10px;
  }
 
-.staggered li{
-   top: 20px;
-   width:21%;
-   float:left;
-   position:relative;
-   min-height: 1px;
-   margin:0 2% 20px;
- }
-
  .testimonials img {
   height: 65px;
   width: 65px;
@@ -372,14 +387,48 @@ html, body{
    background:rgba(15, 71, 114, .09);
  }
  .left-nav {
-   height: 100vh;
-   width:14.66666667%;
-   color:#FFFFFF;
+   height: 100%;
+   width:280px;
+   /*color:#FFFFFF;
    background: #3498DB;
    background-image: linear-gradient(120deg, #0F4772 10%, #5F81A3 100%);
-   float:left;
-   position: fixed;
+   float:left;?*/
+   position: absolute;
+   -webkit-transition: all 0.3s ease-in-out;
+   -moz-transition: all 0.3s ease-in-out;
+   -o-transition: all 0.3s ease-in-out;
+   transition: all 0.3s ease-in-out;
+   transform: translate(-280px,0);
+     -webkit-transform: translate(-280px,0); /** Chrome & Safari **/
+     -o-transform: translate(-280px,0); /** Opera **/
+     -moz-transform: translate(-280px,0); /** Firefox **/
+  }
+ .left-nav.open {
    display:block;
+   width:280px;
+   background: #3498DB;
+   background-image: linear-gradient(120deg, #0F4772 10%, #5F81A3 100%);
+   -webkit-transition: all 0.3s ease-in-out;
+   -moz-transition: all 0.3s ease-in-out;
+   -o-transition: all 0.3s ease-in-out;
+   transition: all 0.3s ease-in-out;
+   transform: translate(0,0);
+     -webkit-transform: translate(0,0); /** Chrome & Safari **/
+     -o-transform: translate(0,0); /** Opera **/
+     -moz-transform: translate(0,0); /** Firefox **/
+     z-index: 100;
+ }
+ .hamburger {
+   position:absolute;
+   z-index: 1000;
+   background:#34495E;
+   color:#FFF;
+   text-decoration: none;
+   font-size: 22px;
+   padding: 10px 15px;
+   border-radius: 4px;
+   left: 5px;
+   top: 15px;
  }
  .left-nav .site-logo {
    padding:20px 0;
@@ -388,7 +437,7 @@ html, body{
    text-align: center;
  }
  .left-nav .items {
-   padding:0 6%;
+   padding:0;
  }
  .left-nav .items p {
    font-weight: 600;
@@ -396,6 +445,8 @@ html, body{
    font-size: 12px;
    color: #E2E2E2;
    line-height: 15px;
+   padding: 0 6%;
+   text-align: center;
  }
  .left-nav .items ul {
    margin:0 0 40px;
@@ -403,7 +454,7 @@ html, body{
  }
  .left-nav .items ul li {
    list-style-type: none;
-   margin-bottom: 15px;
+   padding:5% 6%;
  }
  .left-nav .items ul li a {
    color:#FFFFFF;
@@ -539,6 +590,33 @@ html, body{
    }
  }
 
+ @media (min-width:992px) {
+   .left-nav {
+     height: 100vh;
+     width:14.66666667%;
+     color:#FFFFFF;
+     background: #3498DB;
+     background-image: linear-gradient(120deg, #0F4772 10%, #5F81A3 100%);
+     float:left;
+     position: fixed;
+     display:block;
+     transform: translate(0,0);
+     -webkit-transform: translate(0,0); /** Chrome & Safari **/
+     -o-transform: translate(0,0); /** Opera **/
+     -moz-transform: translate(0,0); /** Firefox **/
+   }
+   .left-nav.open {
+     width:14.66666667%;
+     transform: translate(0,0);
+     -webkit-transform: translate(0,0); /** Chrome & Safari **/
+     -o-transform: translate(0,0); /** Opera **/
+     -moz-transform: translate(0,0); /** Firefox **/
+   }
+   .hamburger {
+     display:none;
+   }
+ }
+
  .item-box > img {
     position:absolute;
     height:100%;
@@ -570,4 +648,5 @@ html, body{
     color: #333333;
     line-height: 18px;
     margin:5px 0 0;
+    text-align: left;
   }
